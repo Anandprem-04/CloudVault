@@ -18,7 +18,7 @@
 - **Key Dependencies**:
   - Spring Web (REST API)
   - Spring Security OAuth2 Resource Server
-  - AWS SDK for Java v2 (S3, DynamoDB, KMS, Cognito)
+  - AWS SDK for Java v2 (S3, DynamoDB, Cognito)
   - Lombok (Boilerplate reduction)
 
 #### Frontend
@@ -31,8 +31,8 @@
 - **Storage**: Amazon S3 (Simple Storage Service)
 - **Database**: Amazon DynamoDB (NoSQL)
 - **Authentication**: Amazon Cognito (User Pool)
-- **Encryption**: AWS KMS (Key Management Service) / Local Master Key
-- **Compute**: Configurable (EC2, Elastic Beanstalk, ECS, etc.)
+- **Encryption**: Local Master Key
+- **Compute**: Configurable (EC2, S3, Cognito, etc.)
 
 ---
 
