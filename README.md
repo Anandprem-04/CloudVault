@@ -26,7 +26,7 @@
   - Spring Security OAuth2 Resource Server
   - AWS SDK for Java v2 (S3, DynamoDB, Cognito)
   - Lombok (Boilerplate reduction)
->>>>>>> 863dff7f89e12764cbbbc1f7d34ed95ffe59445b
+
 
 #### Frontend
 - **Core**: HTML5, JavaScript (Vanilla)
@@ -44,7 +44,7 @@
 =======
 - **Encryption**: Local Master Key
 - **Compute**: Configurable (EC2, S3, Cognito, etc.)
->>>>>>> 863dff7f89e12764cbbbc1f7d34ed95ffe59445b
+
 
 ---
 
