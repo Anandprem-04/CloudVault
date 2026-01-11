@@ -1,8 +1,8 @@
-# 🔐 Secure Cloud Storage - Project Documentation
+# 🔐 Cloud Vault - Project Documentation
 
 ## 📋 Project Overview
 
-**Secure Cloud Storage** is a full-stack web application that provides secure file storage with end-to-end encryption. The application leverages AWS cloud services to deliver enterprise-grade security while maintaining user privacy through hybrid envelope encryption.
+**Cloud Vault** is a full-stack web application that provides secure file storage with end-to-end encryption. The application leverages AWS cloud services to deliver enterprise-grade security while maintaining user privacy through hybrid envelope encryption.
 
 ### Project Type
 - **Category**: Cloud-Based Secure File Storage Platform
