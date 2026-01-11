@@ -1,8 +1,8 @@
-# 🔐 Secure Cloud Storage - Project Documentation
+# 🔐 Cloud Vault - Project Documentation
 
 ## 📋 Project Overview
 
-**Secure Cloud Storage** is a full-stack web application that provides secure file storage with end-to-end encryption. The application leverages AWS cloud services to deliver enterprise-grade security while maintaining user privacy through hybrid envelope encryption.
+**Cloud Vault** is a full-stack web application that provides secure file storage with end-to-end encryption. The application leverages AWS cloud services to deliver enterprise-grade security while maintaining user privacy through hybrid envelope encryption.
 
 ### Project Type
 - **Category**: Cloud-Based Secure File Storage Platform
@@ -16,10 +16,17 @@
 - **Language**: Java 17
 - **Build Tool**: Maven
 - **Key Dependencies**:
+<<<<<<< HEAD
 - Spring Web (REST API)
 - Spring Security OAuth2 Resource Server
 - AWS SDK for Java v2 (S3, DynamoDB, Cognito)
 - Lombok (Boilerplate reduction)
+=======
+  - Spring Web (REST API)
+  - Spring Security OAuth2 Resource Server
+  - AWS SDK for Java v2 (S3, DynamoDB, Cognito)
+  - Lombok (Boilerplate reduction)
+>>>>>>> 863dff7f89e12764cbbbc1f7d34ed95ffe59445b
 
 #### Frontend
 - **Core**: HTML5, JavaScript (Vanilla)
@@ -31,8 +38,13 @@
 - **Storage**: Amazon S3 (Simple Storage Service)
 - **Database**: Amazon DynamoDB (NoSQL)
 - **Authentication**: Amazon Cognito (User Pool)
+<<<<<<< HEAD
 - **Encryption**: Local Master Key (KMS not used in the current build)
 - **Compute**: Configurable (EC2, Elastic Beanstalk, ECS, etc.)
+=======
+- **Encryption**: Local Master Key
+- **Compute**: Configurable (EC2, S3, Cognito, etc.)
+>>>>>>> 863dff7f89e12764cbbbc1f7d34ed95ffe59445b
 
 ---
 
