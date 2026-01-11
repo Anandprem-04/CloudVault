@@ -16,7 +16,6 @@
 - **Language**: Java 17
 - **Build Tool**: Maven
 - **Key Dependencies**:
-<<<<<<< HEAD
 - Spring Web (REST API)
 - Spring Security OAuth2 Resource Server
 - AWS SDK for Java v2 (S3, DynamoDB, Cognito)
@@ -38,7 +37,7 @@
 - **Storage**: Amazon S3 (Simple Storage Service)
 - **Database**: Amazon DynamoDB (NoSQL)
 - **Authentication**: Amazon Cognito (User Pool)
-<<<<<<< HEAD
+  
 - **Encryption**: Local Master Key (KMS not used in the current build)
 - **Compute**: Configurable (EC2, Elastic Beanstalk, ECS, etc.)
 =======
