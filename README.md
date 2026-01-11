@@ -16,10 +16,10 @@
 - **Language**: Java 17
 - **Build Tool**: Maven
 - **Key Dependencies**:
-  - Spring Web (REST API)
-  - Spring Security OAuth2 Resource Server
-  - AWS SDK for Java v2 (S3, DynamoDB, KMS, Cognito)
-  - Lombok (Boilerplate reduction)
+- Spring Web (REST API)
+- Spring Security OAuth2 Resource Server
+- AWS SDK for Java v2 (S3, DynamoDB, Cognito)
+- Lombok (Boilerplate reduction)
 
 #### Frontend
 - **Core**: HTML5, JavaScript (Vanilla)
@@ -31,7 +31,7 @@
 - **Storage**: Amazon S3 (Simple Storage Service)
 - **Database**: Amazon DynamoDB (NoSQL)
 - **Authentication**: Amazon Cognito (User Pool)
-- **Encryption**: AWS KMS (Key Management Service) / Local Master Key
+- **Encryption**: Local Master Key (KMS not used in the current build)
 - **Compute**: Configurable (EC2, Elastic Beanstalk, ECS, etc.)
 
 ---
@@ -46,18 +46,17 @@
 │  (Client)   │  HTTPS  │   Application    │  SDK    │                 │
 └─────────────┘         │  (Backend API)   │         │  ┌───────────┐  │
                         └──────────────────┘         │  │ S3 Bucket │  │
-                                │                    │  └───────────┘  │
-                                │                    │  ┌───────────┐  │
-                                │                    │  │ DynamoDB  │  │
-                                │                    │  └───────────┘  │
-                                │                    │  ┌───────────┐  │
-                                │                    │  │  Cognito  │  │
-                                │                    │  └───────────┘  │
-                                │                    │  ┌───────────┐  │
-                                └────────────────────┼─►│    KMS    │  │
+                                                     │  └───────────┘  │
+                                                     │  ┌───────────┐  │
+                                                     │  │ DynamoDB  │  │
+                                                     │  └───────────┘  │
+                                                     │  ┌───────────┐  │
+                                                     │  │  Cognito  │  │
                                                      │  └───────────┘  │
                                                      └─────────────────┘
 ```
+
+> Note: AWS KMS is not used in the current build; encryption uses a local master key only.
 
 ### Component Architecture
 
@@ -124,7 +123,7 @@ The application implements a **multi-layered encryption strategy** to ensure zer
         ↓
 5. Encrypt File Content with AES-256-GCM
         ↓
-6. Encrypt AES Key with Master Key (Local) or KMS
+6. Encrypt AES Key with Master Key (local key only; KMS not configured)
         ↓
 7. Upload Encrypted File to S3
         ↓
@@ -146,7 +145,7 @@ The application implements a **multi-layered encryption strategy** to ensure zer
         ↓
 2. Fetch Metadata from DynamoDB
         ↓
-3. Decrypt File Key using Master Key/KMS
+3. Decrypt File Key using Master Key (local key only; KMS not configured)
         ↓
 4. Download Encrypted File from S3
         ↓
@@ -158,7 +157,7 @@ The application implements a **multi-layered encryption strategy** to ensure zer
 ### Security Features
 
 ✅ **End-to-End Encryption**: Files encrypted before cloud upload  
-✅ **Key Wrapping**: File keys protected by Master Key  
+✅ **Key Wrapping**: File keys protected by local Master Key (KMS integration pending)  
 ✅ **Per-File Keys**: Unique AES key for each file  
 ✅ **Authentication**: AWS Cognito JWT tokens  
 ✅ **Authorization**: OAuth2 Resource Server  
@@ -221,7 +220,7 @@ SecureCloudStorage/
 4. File sent to `/api/files/upload` endpoint
 5. Backend generates AES key and IV
 6. File content encrypted with AES-256-GCM
-7. AES key encrypted with Master Key
+7. AES key encrypted with Master Key (local key only; KMS disabled)
 8. Encrypted file uploaded to S3 (UUID filename)
 9. Metadata saved to DynamoDB
 10. Success response returned
@@ -295,7 +294,7 @@ Located in `src/main/resources/application.properties`:
 - AWS region, S3 bucket, DynamoDB table name
 - Cognito issuer URI and user pool ID
 - AWS credentials (via environment variables)
-- Master encryption key (base64-encoded, via environment variable)
+- Master encryption key (base64-encoded, via environment variable; local key is the only mode currently)
 
 For detailed configuration steps, refer to [cloudsetup.md](cloudsetup.md)
 
