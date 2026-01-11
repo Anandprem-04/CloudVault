@@ -1,0 +1,9 @@
+com\securestorage\AccountController.class
+com\securestorage\FileController.class
+com\securestorage\FileService.class
+com\securestorage\ProfileController.class
+com\securestorage\FileEntity.class
+com\securestorage\EncryptionService.class
+com\securestorage\SecureStorageApplication.class
+com\securestorage\AwsConfig.class
+com\securestorage\SecurityConfig.class
